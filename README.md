@@ -1,4 +1,4 @@
-# Pitch Shifter for Android
+# Real Time Pitch Shifter for Android
 
 An Android app that captures device audio and applies real-time pitch shifting
 before playback. The audio engine uses [Oboe](https://github.com/google/oboe)
