@@ -1,0 +1,19 @@
+# Android Studio and IntelliJ
+.idea/
+*.iml
+
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Native build output
+.cxx/
+*/.cxx/
+
+# Local machine configuration
+local.properties
+
+# Generated files
+captures/
+.externalNativeBuild/

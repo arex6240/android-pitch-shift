@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="System Pitch Shifter"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1976D2"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Info / Tip Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E3F2FD"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚠️ IMPORTANT FOR ANDROID 14+:"
+                android:textStyle="bold"
+                android:textColor="#0D47A1"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="When the system dialog asks what to capture, select 'Entire screen' (NOT 'A single app') so audio from YouTube, Spotify, and games can be captured."
+                android:textColor="#1565C0"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎧 Wearing headphones gives the cleanest pitch-shifted experience."
+                android:textColor="#1565C0"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Start / Stop Controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnStartCapture"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start Capture"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnStopCapture"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stop Capture"
+                android:enabled="false"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Status Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F5F5F5"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status: Stopped"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvEngineInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Engine: Offline"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incoming Audio Signal Level:"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp" />
+
+            <ProgressBar
+                android:id="@+id/pbAudioLevel"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:max="100"
+                android:progress="0"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tvStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Captured: 0 samples | Processed: 0 frames"
+                android:textSize="11sp"
+                android:textColor="#9E9E9E"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Pitch Shift Controls -->
+        <TextView
+            android:id="@+id/tvPitchValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pitch Shift: +4.0 semitones (Major Third)"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginBottom="4dp" />
+
+        <SeekBar
+            android:id="@+id/sbPitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="24"
+            android:progress="16" />
+
+        <!-- Quick Pitch Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnDeepVoice"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="-6 st (Deep)"
+                android:textSize="10sp"
+                android:padding="0dp"
+                android:layout_marginEnd="2dp" />
+
+            <Button
+                android:id="@+id/btnNormalPitch"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="0 st (Normal)"
+                android:textSize="10sp"
+                android:padding="0dp"
+                android:layout_marginEnd="2dp" />
+
+            <Button
+                android:id="@+id/btnHighPitch"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="+4 st (High)"
+                android:textSize="10sp"
+                android:padding="0dp"
+                android:layout_marginEnd="2dp" />
+
+            <Button
+                android:id="@+id/btnChipmunk"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="+12 st (Octave)"
+                android:textSize="10sp"
+                android:padding="0dp" />
+        </LinearLayout>
+
+        <!-- Volume Boost Slider -->
+        <TextView
+            android:id="@+id/tvGainValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volume Boost: 1.5x"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginBottom="4dp" />
+
+        <SeekBar
+            android:id="@+id/sbGain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="25"
+            android:progress="10" />
+
+    </LinearLayout>
+</ScrollView>
